@@ -41,10 +41,11 @@
             "type": "image/png"
         }
     ],
-    "name": "Budget Tracker",
-    "short_name": "bdgttrkr",
+    "name": "budget-tracker",
+    "short_name": "budget",
     "theme_color": "#ffffff",
     "background_color": "#0492C2",
-    "start_url": "/index.html",
+    "start_url": "/",
+    "scope": ".",
     "display": "standalone"
 }

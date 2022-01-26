@@ -13,7 +13,7 @@ const FILES_TO_CACHE = [
 self.addEventListener('install', function (e) {
     e.waitUntil(
         caches.open(CACHE_NAME).then(function (cache) {
-            console.log('installing chase : ' + CACHE_NAME)
+            console.log('installing cache : ' + CACHE_NAME)
             return cache.addAll(FILES_TO_CACHE)
         })
     )
@@ -31,7 +31,7 @@ self.addEventListener('activate', function (e) {
             // removes data of older version no longer needed
             return Promise.all(keyList.map(function (key, i) {
                 if (cacheKeepList.indexOf(key) === -1) {
-                    console.log('deleting cacche : ' + keyList[i] );
+                    console.log('deleting cache : ' + keyList[i] );
                     return caches.delete(keyList[i]);
                 }
             }))
@@ -50,7 +50,7 @@ self.addEventListener('fetch', function (e) {
                 return request
             }   //else, tries fetching request
                 else {
-                    console.log('file is not cache. Fetching : ' + e.request.url);
+                    console.log('file is not in cache. Fetching : ' + e.request.url);
                     return fetch(e.request)
             }
         })

@@ -50,7 +50,7 @@ self.addEventListener('fetch', function (e) {
                 return request
             }   //else, tries fetching request
                 else {
-                    console.log('file is not cached. Fetching : ' + e.request.url);
+                    console.log('file is not cache. Fetching : ' + e.request.url);
                     return fetch(e.request)
             }
         })

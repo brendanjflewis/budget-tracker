@@ -40,3 +40,19 @@ self.addEventListener('activate', function (e) {
 });
 
 // fetch event for service worker
+self.addEventListener('fetch', function (e) {
+    console.log('fetch request: ' + e.request.url);
+    e.respondWith(
+        caches.match(e.request).then(function (request) {
+            //if caches is available, respond with cache
+            if (request) {
+                console.log('responding with cache : ' + e.request.url);
+                return request
+            }   //else, tries fetching request
+                else {
+                    console.log('file is not cached. Fetching : ' + e.request.url);
+                    return fetch(e.request)
+            }
+        })
+    )
+});

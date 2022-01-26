@@ -20,7 +20,7 @@ request.onsuccess = function(event) {
 
     // if app is online, send local db data to api
     if(navigator.onLine) {
-        uploadBudget();
+        // uploadBudget();
     }
 };
 
